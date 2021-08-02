@@ -14,11 +14,11 @@ public class Checker {
 
         Scanner sc = new Scanner(inputStream);
         Path path = Paths.get(sc.nextLine());
-        int answer;
         if (Files.exists(path)) {
             System.out.println("Файл найден!");
             readOrWrite(sc, path);
         } else {
+            int answer;
             System.out.println("Файл не найден! Создать?\n1 - да, 2 - нет");
             boolean choice = false;
             do {
@@ -47,9 +47,9 @@ public class Checker {
     }
 
     static void readOrWrite(Scanner scanner, Path path) throws IOException {
-        int choice;
         boolean correctChoice = false;
-        while (!correctChoice) {
+        do {
+            int choice;
             System.out.println("Выберите действие с файлом:\n1. Прочитать содержимое.\n2. Дописать строку в конец файла.");
             choice = scanner.nextInt();
             scanner.nextLine();
@@ -74,6 +74,6 @@ public class Checker {
                     System.out.println("Некорректный выбор команды. Повторите попытку.");
                     break;
             }
-        }
+        } while (!correctChoice);
     }
 }
