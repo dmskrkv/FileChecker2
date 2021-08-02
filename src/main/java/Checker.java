@@ -55,15 +55,12 @@ public class Checker {
             scanner.nextLine();
             switch (choice) {
                 case 1:
+                    System.out.println("Содержимое файла: {");
                     List<String> lines = Files.readAllLines(path);
-                    if (lines.size() == 0) {
-                        System.out.println("Файл пустой.");
+                    for (String s : lines) {
+                        System.out.println(s);
                     }
-                    else {
-                        for (String s : lines) {
-                            System.out.println(s);
-                        }
-                    }
+                    System.out.println("}");
                     correctChoice = true;
                     break;
                 case 2:
